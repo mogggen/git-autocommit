@@ -12,7 +12,7 @@ fn main() -> Result<()> {
     call_terminal(vec!["git", "config", "user.name", "\"Jane Doe\""]); 
     call_terminal(vec!["git", "config", "user.email", "\"jane.doe@example.com\""]);
 
-    let (tx, rx) = mpsc::channel::<Result<Event>>();
+     let (tx, rx) = mpsc::channel::<Result<Event>>();
     let mut watcher = notify::recommended_watcher(tx)?;
     let path = std::env::current_dir().expect("Should get the current directory");
     // let args: Vec<_> = env::args().collect();

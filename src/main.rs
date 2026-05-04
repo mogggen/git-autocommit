@@ -21,7 +21,7 @@ fn main() -> Result<()> {
 
     watcher.watch(&path, RecursiveMode::Recursive)?;
     for res in rx {
-        match res { 
+        match res {
             Ok(event) => {
                 println!("event: {:?}", event);
                 call_terminal(vec!["git", "add", "*"]);

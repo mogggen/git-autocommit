@@ -1,7 +1,6 @@
 use chrono;
 use notify::{Event, RecursiveMode, Result, Watcher};
 use std::{path::Path, sync::mpsc};
-// use std::env;
 use std::process::Command;
 
 fn call_terminal(args: Vec<&str>) {
@@ -22,7 +21,7 @@ fn main() -> Result<()> {
 
     watcher.watch(&path, RecursiveMode::Recursive)?;
     for res in rx {
-        match res {
+        match res { 
             Ok(event) => {
                 println!("event: {:?}", event);
                 call_terminal(vec!["git", "add", "*"]);
@@ -31,6 +30,6 @@ fn main() -> Result<()> {
             },
             Err(e) => println!("watch error: {:?}", e),
         }
-    }
+    } 
     Ok(())
 }

@@ -18,7 +18,7 @@ fn main() -> Result<()> {
     // let args: Vec<_> = env::args().collect();
     // let path = if args.len() > 1 { Path::new(&args[1]) };
     // println!("Watching in directory {}", path.display());
-
+ 
     watcher.watch(&path, RecursiveMode::Recursive)?;
     for res in rx {
         match res {

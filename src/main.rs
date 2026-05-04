@@ -3,7 +3,6 @@ use notify::{Event, RecursiveMode, Result, Watcher};
 use std::{path::Path, sync::mpsc};
 // use std::env;
 use std::process::Command;
-use std::time::SystemTime;
 
 fn call_terminal(args: Vec<&str>) {
     Command::new(if cfg!(target_os = "windows") { "powershell" } else { "sh" }).args(args) .output().expect("Should be able to ls here").stdout;
